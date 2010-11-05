@@ -3,8 +3,8 @@ import sys
 import cPickle
 import telnetlib
 
-HOST = "66.234.205.2"
-PORT = 4201
+HOST = "" #hostname to connect to
+PORT = #port to connect to
 
 user = raw_input("username: ");
 passw = getpass.getpass();
@@ -12,8 +12,6 @@ passw = getpass.getpass();
 tn = telnetlib.Telnet(HOST,PORT)
 #logging in
 tn.write("connect " + user + " " + passw + "\n");
-
-print tn.read_eager()
 
 def command(tn, cmd):
 	tn.write(cmd+'\n');
@@ -36,3 +34,5 @@ while 1:
 	if retval[0] != -1:
 		#http://docs.python.org/library/re.html#re.MatchObject
 		command(tn,replies[retval[0]]);
+		#debug
+		print retval[2]
